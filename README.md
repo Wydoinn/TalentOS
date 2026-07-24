@@ -1,18 +1,49 @@
 # TalentOS
 
-TalentOS is a local AI recruitment platform with a single Angular frontend and four FastAPI backend services.
+TalentOS is a local-first AI recruitment platform that brings hiring workflows together in one place. It combines an Angular frontend with four FastAPI services to support authentication, orchestration, anti-spoofing, and ATS-driven resume analysis.
 
-## What Is In This Repo
+## Why TalentOS?
 
-- `frontend/`: Angular 21 app for project managers and candidates.
-- `backend/authentication/`: OTP login and candidate face registration/verification.
-- `backend/orchestration/`: jobs, scheduling, assessments, notifications, AI workflows, and realtime coordination.
-- `backend/anti_spoofing/`: video and audio liveness / anti-spoofing checks.
-- `backend/ats_parser_checker/`: resume parsing, ATS scoring, retrieval, and ranking.
-- `backend/models/`: shared local model cache used by the backend services. See `backend/models/README.md` for the model list and download sources.
-- `run-all.ps1` and `run-all.sh`: helper scripts to start the stack locally.
+- Streamline candidate onboarding and recruiter workflows
+- Support OTP login and face-based identity verification
+- Run scheduling, assessments, notifications, and AI-assisted coordination in one stack
+- Add liveness checks for video and audio anti-spoofing
+- Parse resumes and score them with ATS-style analysis
 
-## Required Tools
+## What is in this repo?
+
+- `frontend/`: Angular app for project managers and candidates
+- `backend/authentication/`: OTP login and candidate face registration/verification
+- `backend/orchestration/`: jobs, scheduling, assessments, notifications, AI workflows, and realtime coordination
+- `backend/anti_spoofing/`: video and audio liveness / anti-spoofing checks
+- `backend/ats_parser_checker/`: resume parsing, ATS scoring, retrieval, and ranking
+- `backend/models/`: shared local model cache used by the backend services. See `backend/models/README.md` for the model list and download sources
+- `run-all.ps1` and `run-all.sh`: helper scripts to start the full stack locally
+
+## Swipe through the experience
+
+Swipe horizontally to explore the latest screenshots from the updated gallery.
+
+<div align="center">
+  <div style="display:flex; overflow-x:auto; gap:16px; padding:8px 0; scroll-snap-type:x mandatory;">
+    <img src="screenshot/1.png" alt="TalentOS screenshot 1" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/2.png" alt="TalentOS screenshot 2" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/3.png" alt="TalentOS screenshot 3" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/4.png" alt="TalentOS screenshot 4" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/5.png" alt="TalentOS screenshot 5" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/7.png" alt="TalentOS screenshot 6" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/8.png" alt="TalentOS screenshot 7" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/9.png" alt="TalentOS screenshot 8" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/10.png" alt="TalentOS screenshot 9" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/11.png" alt="TalentOS screenshot 10" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/12.png" alt="TalentOS screenshot 11" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/13.png" alt="TalentOS screenshot 12" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/14.png" alt="TalentOS screenshot 13" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+    <img src="screenshot/15.png" alt="TalentOS screenshot 14" width="320" style="border-radius:12px; scroll-snap-align:start; box-shadow:0 8px 24px rgba(0,0,0,0.15); flex-shrink:0;" />
+  </div>
+</div>
+
+## Requirements
 
 - Python `3.10` only
 - Node.js `20+`
@@ -27,7 +58,7 @@ Optional integrations used by some flows:
 - Gemini API
 - Redis
 
-## Quick Start
+## Quick start
 
 1. Read [SETUP.md](SETUP.md).
 2. Create `backend/.venv` with Python 3.10.
@@ -45,7 +76,7 @@ Optional integrations used by some flows:
    - Windows: `./run-all.ps1`
    - macOS/Linux: `./run-all.sh`
 
-## Default Local Ports
+## Default local ports
 
 - Frontend: `http://localhost:3000`
 - Authentication API: `http://127.0.0.1:8000`
@@ -53,7 +84,7 @@ Optional integrations used by some flows:
 - Anti-Spoofing API: `http://127.0.0.1:8080`
 - ATS Parser API: `http://127.0.0.1:8090`
 
-## Repository Map
+## Repository map
 
 ```text
 TalentOS/
