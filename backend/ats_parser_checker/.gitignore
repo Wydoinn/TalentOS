@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.pytest_tmp/
+.mypy_cache/
+.venv/
+.env
+data/resumes/
+.pytest_tmp/
+*.pytest_tmp/
+__pycache__/
+.pytest_cache/

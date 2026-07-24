@@ -1,0 +1,663 @@
+{
+  "section_headers": {
+    "experience": [
+      "experience",
+      "work experience",
+      "professional experience",
+      "employment",
+      "work history",
+      "employment history",
+      "career history",
+      "internship experience"
+    ],
+    "education": [
+      "education",
+      "academics",
+      "academic background",
+      "qualifications"
+    ],
+    "projects": [
+      "projects",
+      "personal projects",
+      "key projects",
+      "relevant projects"
+    ],
+    "skills": [
+      "skills",
+      "technical skills",
+      "core competencies",
+      "technologies",
+      "technical proficiencies",
+      "tech stack"
+    ],
+    "summary": [
+      "summary",
+      "professional summary",
+      "profile",
+      "objective",
+      "about me"
+    ],
+    "languages": [
+      "languages",
+      "languages known"
+    ]
+  },
+  "skill_aliases": {
+    "python": ["python"],
+    "java": ["java"],
+    "c++": ["c++"],
+    "go": [" golang ", " go "],
+    "javascript": ["javascript", "js "],
+    "typescript": ["typescript"],
+    "sql": ["sql", "structured query language"],
+    "mongodb": ["mongodb"],
+    "neo4j": ["neo4j"],
+    "pinecone": ["pinecone"],
+    "fastapi": ["fastapi"],
+    "django": ["django"],
+    "flask": ["flask"],
+    "spring boot": ["spring boot"],
+    "node.js": ["node.js", "nodejs", "node js"],
+    "react": ["react"],
+    "angular": ["angular"],
+    "vue": ["vue"],
+    "docker": ["docker"],
+    "kubernetes": ["kubernetes", "k8s"],
+    "aws": ["aws", "amazon web services"],
+    "azure": ["azure"],
+    "gcp": ["gcp", "google cloud"],
+    "terraform": ["terraform"],
+    "ansible": ["ansible"],
+    "git": ["git"],
+    "ci/cd": ["ci/cd", "continuous integration", "continuous delivery"],
+    "linux": ["linux"],
+    "pandas": ["pandas"],
+    "numpy": ["numpy"],
+    "scikit-learn": ["scikit-learn", "sklearn"],
+    "pytorch": ["pytorch"],
+    "tensorflow": ["tensorflow"],
+    "llm": ["llm", "large language model", "large language models"],
+    "rag": ["rag", "retrieval augmented generation"],
+    "langchain": ["langchain"],
+    "machine learning": ["machine learning", "ml "],
+    "deep learning": ["deep learning"],
+    "nlp": ["nlp", "natural language processing"],
+    "computer vision": ["computer vision"],
+    "airflow": ["airflow"],
+    "spark": ["spark", "apache spark"],
+    "hadoop": ["hadoop"],
+    "kafka": ["kafka"],
+    "rabbitmq": ["rabbitmq"],
+    "graphql": ["graphql"],
+    "rest": [" rest ", "restful", "rest api"],
+    "microservices": ["microservices", "microservice"],
+    "sqlalchemy": ["sqlalchemy"],
+    "postgresql": ["postgresql", "postgres"],
+    "mysql": ["mysql"],
+    "oracle": ["oracle"],
+    "elasticsearch": ["elasticsearch"],
+    "prometheus": ["prometheus"],
+    "grafana": ["grafana"],
+    "pytest": ["pytest"],
+    "selenium": ["selenium"],
+    "playwright": ["playwright"],
+    "jira": ["jira"],
+    "agile": ["agile", "scrum"],
+    "data engineering": ["data engineering"],
+    "etl": ["etl", "elt"],
+    "devops": ["devops"],
+    "serverless": ["serverless", "lambda"],
+    "html": [" html "],
+    "css": [" css "]
+  },
+  "resume_parser": {
+    "month_lookup": {
+      "jan": 1,
+      "feb": 2,
+      "mar": 3,
+      "apr": 4,
+      "may": 5,
+      "jun": 6,
+      "jul": 7,
+      "aug": 8,
+      "sep": 9,
+      "oct": 10,
+      "nov": 11,
+      "dec": 12
+    },
+    "role_keywords": [
+      "analyst",
+      "architect",
+      "consultant",
+      "consulting",
+      "data",
+      "designer",
+      "developer",
+      "engineer",
+      "executive",
+      "intern",
+      "lead",
+      "learning",
+      "machine",
+      "manager",
+      "scientist",
+      "senior",
+      "software",
+      "specialist",
+      "support",
+      "tester",
+      "ui",
+      "ux"
+    ],
+    "section_tokens": [
+      "academic background",
+      "academics",
+      "core competencies",
+      "education",
+      "employment",
+      "employment history",
+      "experience",
+      "internship experience",
+      "key projects",
+      "languages known",
+      "objective",
+      "personal projects",
+      "professional experience",
+      "professional summary",
+      "profile",
+      "projects",
+      "skills",
+      "summary",
+      "technical proficiencies",
+      "technical skills",
+      "tech stack",
+      "technologies",
+      "work history",
+      "work experience"
+    ],
+    "contact_markers": ["@", "linkedin.com", "github.com", "http://", "https://"],
+    "location_markers": ["location", "based in", "remote", "hybrid", "onsite"],
+    "date_range_pattern": "((?:[A-Za-z]{3,9}\\s+\\d{4}|\\d{4})\\s*-\\s*(?:[A-Za-z]{3,9}\\s+\\d{4}|\\d{4}|Present|Current))",
+    "experience_action_verbs": [
+      "analyzed",
+      "architected",
+      "automated",
+      "built",
+      "collaborated",
+      "configured",
+      "created",
+      "debugged",
+      "delivered",
+      "designed",
+      "developed",
+      "documented",
+      "engineered",
+      "enhanced",
+      "implemented",
+      "improved",
+      "integrated",
+      "led",
+      "maintained",
+      "managed",
+      "migrated",
+      "optimized",
+      "owned",
+      "reduced",
+      "supported",
+      "tested",
+      "used"
+    ],
+    "company_hint_tokens": [
+      "company",
+      "corp",
+      "corporation",
+      "group",
+      "inc",
+      "labs",
+      "limited",
+      "llc",
+      "ltd",
+      "pay",
+      "solutions",
+      "systems",
+      "technologies",
+      "technology"
+    ],
+    "degree_patterns": [
+      "b\\.?tech",
+      "bachelor",
+      "master",
+      "m\\.?tech",
+      "mba",
+      "phd",
+      "b\\.?e",
+      "m\\.?s",
+      "bsc",
+      "msc"
+    ],
+    "project_technology_markers": [
+      "tech stack",
+      "technologies",
+      "tools used",
+      "stack"
+    ],
+    "present_tokens": ["present", "current", "now"],
+    "person_name_min_words": 2,
+    "person_name_max_words": 4,
+    "person_name_uppercase_ratio": 0.75,
+    "header_scan_limit": 12,
+    "name_fallback_scan_limit": 6,
+    "location_scan_limit": 10,
+    "location_comma_word_limit": 6,
+    "description_word_threshold": 7,
+    "description_preposition_word_threshold": 5,
+    "company_word_limit": 6,
+    "company_uppercase_ratio": 0.7,
+    "title_company_header_scan_limit": 3,
+    "experience_entry_limit": 8,
+    "education_entry_limit": 5,
+    "project_entry_limit": 6,
+    "experience_summary_character_limit": 500,
+    "project_summary_character_limit": 600,
+    "parsing_quality_weights": {
+      "name": 0.12,
+      "contact": 0.08,
+      "current_title": 0.12,
+      "skills_strong": 0.2,
+      "skills_partial": 0.1,
+      "experience_structured": 0.18,
+      "experience_inferred": 0.1,
+      "projects": 0.15,
+      "education": 0.1,
+      "links_or_location": 0.05,
+      "sections": 0.1
+    },
+    "skills_strong_threshold": 4,
+    "minimum_line_breaks": 4
+  },
+  "ats_scoring": {
+    "requested_experience_hints": [
+      {"pattern": "\\bprincipal\\b", "years": 8.0},
+      {"pattern": "\\bstaff\\b", "years": 7.0},
+      {"pattern": "\\blead\\b", "years": 6.0},
+      {"pattern": "\\bsenior\\b", "years": 5.0},
+      {"pattern": "\\bmid[\\s-]?level\\b|\\bintermediate\\b", "years": 3.0},
+      {"pattern": "\\bassociate\\b", "years": 2.0},
+      {"pattern": "\\bjunior\\b", "years": 1.0},
+      {"pattern": "\\bentry[\\s-]?level\\b|\\bfresher\\b|\\bintern(?:ship)?\\b", "years": 0.5}
+    ],
+    "experience_relevance_weights": {
+      "keyword": 0.6,
+      "years": 0.4
+    },
+    "quality": {
+      "ideal_word_count_min": 180,
+      "ideal_word_count_max": 900,
+      "acceptable_word_count_min": 120,
+      "acceptable_word_count_max": 1100,
+      "acceptable_length_score": 0.7,
+      "outside_length_score": 0.45,
+      "impact_target_count": 6,
+      "profile_target_skills": 6,
+      "missing_links_score": 0.7,
+      "weights": {
+        "formatting": 0.25,
+        "completeness": 0.25,
+        "length": 0.15,
+        "impact": 0.2,
+        "profile": 0.1,
+        "links": 0.05
+      },
+      "summary_thresholds": {
+        "strong": 0.75,
+        "workable": 0.5
+      }
+    },
+    "formatting": {
+      "max_images_penalized": 2,
+      "max_tables_penalized": 2,
+      "image_penalty": 0.08,
+      "table_penalty": 0.12,
+      "multi_column_penalty": 0.15,
+      "repeated_banner_penalty": 0.07,
+      "multi_column_left_start_ratio": 0.9,
+      "multi_column_left_end_ratio": 1.05,
+      "multi_column_right_start_ratio": 0.95,
+      "layout_ignore_width_ratio": 0.8,
+      "layout_column_threshold_ratio": 0.12,
+      "layout_ignored_labels": [
+        "page-header",
+        "page-footer",
+        "picture",
+        "image",
+        "table",
+        "formula"
+      ]
+    }
+  },
+  "role_matching": {
+    "stopwords": [
+      "a",
+      "an",
+      "and",
+      "at",
+      "by",
+      "for",
+      "from",
+      "in",
+      "of",
+      "on",
+      "or",
+      "the",
+      "to",
+      "with"
+    ],
+    "role_token_stopwords": [
+      "developer",
+      "engineer",
+      "manager",
+      "professional",
+      "specialist"
+    ],
+    "families": {
+      "backend": {
+        "title_aliases": [
+          "backend",
+          "backend engineer",
+          "backend developer",
+          "api engineer",
+          "platform engineer",
+          "platform developer",
+          "server side"
+        ],
+        "text_aliases": [
+          "backend",
+          "rest api",
+          "microservice",
+          "server side",
+          "api platform"
+        ],
+        "skill_hints": [
+          "fastapi",
+          "django",
+          "flask",
+          "spring boot",
+          "node.js",
+          "postgresql",
+          "mysql",
+          "rest",
+          "microservices",
+          "sqlalchemy"
+        ]
+      },
+      "frontend": {
+        "title_aliases": [
+          "frontend",
+          "front end",
+          "ui engineer",
+          "web developer"
+        ],
+        "text_aliases": [
+          "frontend",
+          "front end",
+          "web ui",
+          "user interface"
+        ],
+        "skill_hints": [
+          "react",
+          "angular",
+          "vue",
+          "javascript",
+          "typescript",
+          "html",
+          "css"
+        ]
+      },
+      "fullstack": {
+        "title_aliases": [
+          "fullstack",
+          "full stack"
+        ],
+        "text_aliases": [
+          "fullstack",
+          "full stack"
+        ],
+        "skill_hints": [
+          "react",
+          "angular",
+          "vue",
+          "fastapi",
+          "django",
+          "node.js"
+        ]
+      },
+      "ml": {
+        "title_aliases": [
+          "machine learning",
+          "ml engineer",
+          "ml scientist",
+          "applied scientist"
+        ],
+        "text_aliases": [
+          "machine learning",
+          "predictive model",
+          "recommendation system",
+          "computer vision"
+        ],
+        "skill_hints": [
+          "machine learning",
+          "scikit-learn",
+          "tensorflow",
+          "pytorch",
+          "deep learning",
+          "nlp",
+          "computer vision"
+        ]
+      },
+      "ai": {
+        "title_aliases": [
+          "ai engineer",
+          "artificial intelligence",
+          "genai engineer",
+          "llm engineer"
+        ],
+        "text_aliases": [
+          "artificial intelligence",
+          "large language model",
+          "generative ai",
+          "retrieval augmented generation"
+        ],
+        "skill_hints": [
+          "llm",
+          "rag",
+          "langchain",
+          "nlp"
+        ]
+      },
+      "data": {
+        "title_aliases": [
+          "data engineer",
+          "analytics engineer",
+          "data scientist",
+          "data analyst"
+        ],
+        "text_aliases": [
+          "data pipeline",
+          "analytics",
+          "etl",
+          "elt",
+          "data warehouse"
+        ],
+        "skill_hints": [
+          "data engineering",
+          "etl",
+          "airflow",
+          "spark",
+          "hadoop",
+          "kafka"
+        ]
+      },
+      "devops": {
+        "title_aliases": [
+          "devops",
+          "site reliability",
+          "sre",
+          "cloud engineer"
+        ],
+        "text_aliases": [
+          "infrastructure automation",
+          "continuous delivery",
+          "observability"
+        ],
+        "skill_hints": [
+          "devops",
+          "docker",
+          "kubernetes",
+          "terraform",
+          "ansible",
+          "aws",
+          "azure",
+          "gcp",
+          "ci/cd",
+          "prometheus",
+          "grafana"
+        ]
+      }
+    },
+    "family_similarity": {
+      "ml|ai": 0.72,
+      "ml|data": 0.58,
+      "ai|data": 0.5,
+      "backend|fullstack": 0.82,
+      "frontend|fullstack": 0.82,
+      "backend|devops": 0.38,
+      "data|backend": 0.22,
+      "ml|backend": 0.15,
+      "ai|backend": 0.15,
+      "frontend|backend": 0.1
+    },
+    "experience_levels": [
+      {"name": "entry", "min_years": 0.0, "max_years": 1.0},
+      {"name": "junior", "min_years": 1.0, "max_years": 3.0},
+      {"name": "mid", "min_years": 3.0, "max_years": 6.0},
+      {"name": "senior", "min_years": 6.0, "max_years": 9.0},
+      {"name": "principal", "min_years": 9.0, "max_years": null}
+    ],
+    "weights": {
+      "title_match": 3.0,
+      "text_hit": 0.8,
+      "text_hit_cap": 1.6,
+      "skill_hit": 0.35,
+      "skill_hit_cap": 1.4,
+      "fullstack_boost": 1.0
+    },
+    "thresholds": {
+      "minimum_family_score": 1.0,
+      "primary_floor": 2.2,
+      "primary_gap": 0.8,
+      "secondary_floor": 1.2,
+      "secondary_gap": 1.6
+    },
+    "alignment_scores": {
+      "no_job_primary": 0.6,
+      "no_candidate_family": 0.4,
+      "primary_overlap": 0.95,
+      "secondary_overlap": 0.72,
+      "primary_family_penalty": 0.05,
+      "minimum_similarity": 0.15
+    }
+  },
+  "retrieval": {
+    "bm25": {
+      "k1": 1.5,
+      "b": 0.75
+    },
+    "lexical_blend": {
+      "bm25": 0.7,
+      "exact": 0.3
+    },
+    "exact_match_weights": {
+      "skill": 0.55,
+      "phrase": 0.25,
+      "summary": 0.2
+    },
+    "graph_score_weights": {
+      "skill_overlap": 0.4,
+      "project_validation": 0.2,
+      "experience_validation": 0.15,
+      "cooccurrence_strength": 0.1,
+      "experience": 0.15
+    },
+    "project_multi_skill_match_threshold": 2,
+    "experience_bands": [
+      {"label": "0-1", "max_years": 2.0},
+      {"label": "2-3", "max_years": 4.0},
+      {"label": "4-6", "max_years": 7.0},
+      {"label": "7-9", "max_years": 10.0},
+      {"label": "10+", "max_years": null}
+    ],
+    "role_mismatch_tokens": [
+      "intern",
+      "trainee",
+      "fresher"
+    ],
+    "role_mismatch_threshold": 0.3,
+    "role_alignment_penalty": {
+      "threshold": 0.65,
+      "base": 0.06,
+      "max_additional": 0.14
+    },
+    "summary_overlap_stopwords": [
+      "and",
+      "with",
+      "the",
+      "for",
+      "years"
+    ]
+  },
+  "analysis": {
+    "ats_component_weights": {
+      "keyword": 0.25,
+      "semantic": 0.18,
+      "formatting": 0.15,
+      "quality": 0.16,
+      "experience": 0.1,
+      "completeness": 0.08,
+      "role": 0.08
+    },
+    "senior_role_tokens": [
+      "lead",
+      "manager",
+      "principal",
+      "senior",
+      "staff"
+    ],
+    "senior_years_threshold": 5.0,
+    "description_role_keyword_limit": 4,
+    "weak_role_alignment_threshold": 0.35,
+    "reason_thresholds": {
+      "role_alignment": 0.8,
+      "reranker": 0.75,
+      "retrieval": 0.7,
+      "lexical": 0.6,
+      "semantic": 0.75,
+      "experience": 0.75,
+      "quality": 0.75,
+      "formatting": 0.85,
+      "parsing_quality": 0.7
+    },
+    "limits": {
+      "missing_keywords": 8,
+      "reason_skills": 4,
+      "reason_graph_skills": 4,
+      "reason_project_technologies": 3,
+      "max_reasons": 5,
+      "role_projects": 3,
+      "role_experiences": 3,
+      "reranker_experiences": 3,
+      "reranker_projects": 3,
+      "reranker_project_technologies": 5,
+      "primary_skill_fallback": 6
+    }
+  }
+}

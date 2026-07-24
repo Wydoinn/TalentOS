@@ -1,0 +1,48 @@
+# Shared Python dependencies
+
+# Web and API
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20
+httpx>=0.28,<1.0
+pydantic==2.10.3
+pydantic-settings==2.7.0
+python-json-logger>=2.0,<4.0
+
+# Auth and validation
+python-jose[cryptography]>=3.3,<4.0
+PyJWT>=2.9,<3.0
+email-validator>=2.2,<3.0
+
+# Database
+sqlalchemy[asyncio]>=2.0,<3.0
+psycopg2-binary>=2.9,<3.0
+asyncpg>=0.29,<1.0
+aiosqlite>=0.20,<1.0
+
+# Shared integrations
+pinecone>=6.0,<7.0
+neo4j>=5.24,<6.0
+redis>=5.2,<6.0
+
+# ML, CV, and audio
+numpy==1.26.4
+torch==2.2.2
+opencv-python==4.10.0.84
+mediapipe==0.10.18
+insightface==0.7.3
+onnxruntime==1.20.1
+soundfile==0.12.1
+librosa==0.10.2
+fairseq==0.12.2
+huggingface-hub==0.31.1
+faster-whisper==1.1.0
+sentence-transformers>=3.0,<4.0
+
+# Document parsing
+python-docx>=1.1,<2.0
+PyMuPDF==1.27.2.2
+
+# Testing
+pytest>=8.4,<9.0
+pytest-asyncio>=0.24,<1.0
