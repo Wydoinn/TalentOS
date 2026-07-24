@@ -1,0 +1,213 @@
+import {Component, inject, signal} from '@angular/core';
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ActivatedRoute, RouterLink} from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+
+import {AuthService} from '../../core/auth.service';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [ReactiveFormsModule, RouterLink, MatIconModule],
+  template: `
+    <div class="auth-canvas flex min-h-screen items-center justify-center px-4 py-10">
+      <div class="auth-card">
+        <div class="space-y-6 p-8">
+          <div class="text-center">
+            <span class="auth-header-kicker">
+              <mat-icon class="text-[16px]">badge</mat-icon>
+              Manager Onboarding
+            </span>
+            <div class="mt-4 flex items-center justify-center gap-2 font-bold tracking-tight text-primary-700">
+              <mat-icon class="text-[30px]">work_outline</mat-icon>
+              <span class="text-2xl">Create Manager Account</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600">Secure signup with email OTP verification.</p>
+          </div>
+
+          <div class="auth-panel">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="firstName" class="mb-1.5 block text-sm font-medium text-slate-700">First Name</label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    formControlName="firstName"
+                    class="w-full rounded-xl border border-rose-200 bg-white px-4 py-2.5 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                    placeholder="John"
+                  />
+                </div>
+                <div>
+                  <label for="lastName" class="mb-1.5 block text-sm font-medium text-slate-700">Last Name</label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    formControlName="lastName"
+                    class="w-full rounded-xl border border-rose-200 bg-white px-4 py-2.5 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="email" class="mb-1.5 block text-sm font-medium text-slate-700">Work Email</label>
+                <div class="relative">
+                  <mat-icon class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">mail_outline</mat-icon>
+                  <input
+                    id="email"
+                    type="email"
+                    formControlName="email"
+                    class="w-full rounded-xl border border-rose-200 bg-white py-2.5 pl-10 pr-4 outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="button"
+                (click)="sendOtp()"
+                [disabled]="registerForm.controls.email.invalid || registerForm.controls.firstName.invalid || registerForm.controls.lastName.invalid || authService.loading()"
+                class="auth-secondary-button disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <span class="inline-flex items-center gap-2">
+                  {{ otpSent() ? 'Resend OTP' : 'Send OTP' }}
+                  <mat-icon class="text-[18px]">send</mat-icon>
+                </span>
+              </button>
+
+              @if (otpSent()) {
+                <div>
+                  <label for="otp" class="mb-1.5 block text-sm font-medium text-slate-700">OTP Code</label>
+                  <div class="relative">
+                    <mat-icon class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">pin</mat-icon>
+                    <input
+                      id="otp"
+                      type="text"
+                      formControlName="otp"
+                      class="w-full rounded-xl border border-rose-200 bg-white py-2.5 pl-10 pr-4 tracking-[0.24em] outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                      placeholder="123456"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  [disabled]="registerForm.invalid || authService.loading()"
+                  class="auth-primary-button disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <span class="inline-flex items-center gap-2">
+                    {{ authService.loading() ? 'Verifying OTP...' : 'Verify OTP and Continue' }}
+                    <mat-icon class="text-[18px]">arrow_forward</mat-icon>
+                  </span>
+                </button>
+              }
+            </form>
+          </div>
+
+          @if (infoMessage()) {
+            <p class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-700">
+              {{ infoMessage() }}
+            </p>
+          }
+
+          @if (authService.errorMessage()) {
+            <p class="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700">
+              {{ authService.errorMessage() }}
+            </p>
+          }
+
+          <p class="text-center text-sm text-slate-600">
+            Already have an account?
+            <a routerLink="/auth/login" class="font-semibold text-primary-700 hover:underline">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  `,
+})
+export class RegisterComponent {
+  private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+  authService = inject(AuthService);
+
+  otpSent = signal(false);
+  infoMessage = signal<string | null>(null);
+
+  registerForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    otp: [''],
+  });
+
+  constructor() {
+    this.initializeRedirectContext();
+  }
+
+  async sendOtp(): Promise<void> {
+    if (
+      this.registerForm.controls.email.invalid
+      || this.registerForm.controls.firstName.invalid
+      || this.registerForm.controls.lastName.invalid
+    ) {
+      this.registerForm.controls.firstName.markAsTouched();
+      this.registerForm.controls.lastName.markAsTouched();
+      this.registerForm.controls.email.markAsTouched();
+      return;
+    }
+
+    const role = 'pm';
+    const email = this.registerForm.controls.email.value?.trim() ?? '';
+    const displayName = this.composeFullName();
+
+    try {
+      const response = await this.authService.sendSignupOtp(email, role, displayName);
+      this.otpSent.set(true);
+      this.infoMessage.set(response.message);
+      this.registerForm.controls.otp.setValidators([Validators.required, Validators.minLength(4)]);
+      this.registerForm.controls.otp.updateValueAndValidity();
+    } catch {
+      this.infoMessage.set(null);
+    }
+  }
+
+  async onSubmit(): Promise<void> {
+    if (!this.otpSent()) {
+      await this.sendOtp();
+      return;
+    }
+
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    const role = 'pm';
+    const email = this.registerForm.controls.email.value?.trim() ?? '';
+    const otp = this.registerForm.controls.otp.value?.trim() ?? '';
+    const displayName = this.composeFullName();
+
+    try {
+      await this.authService.verifySignupOtp(email, role, otp, displayName);
+    } catch {
+      // Error message is exposed from AuthService.
+    }
+  }
+
+  private composeFullName(): string {
+    const firstName = this.registerForm.controls.firstName.value?.trim() ?? '';
+    const lastName = this.registerForm.controls.lastName.value?.trim() ?? '';
+    return `${firstName} ${lastName}`.trim();
+  }
+
+  private initializeRedirectContext(): void {
+    const next = this.route.snapshot.queryParamMap.get('next');
+    if (next && next.startsWith('/') && !next.startsWith('/auth/')) {
+      this.authService.setPostAuthRedirect(next);
+      return;
+    }
+
+    this.authService.setPostAuthRedirect(null);
+  }
+}

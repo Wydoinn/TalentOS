@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>TalentOS - AI-Powered Recruitment</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="TalentOS: AI-powered recruitment platform with intelligent candidate matching, anti-spoofing assessments, and real-time hiring insights." />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      /* App shell loading state */
+      body { margin: 0; background: #f9fafb; font-family: Inter, sans-serif; }
+      #app-loading {
+        position: fixed; inset: 0; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; background: #f9fafb;
+        z-index: 9999;
+      }
+      .loading-logo {
+        width: 48px; height: 48px; border-radius: 14px;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 16px; box-shadow: 0 8px 24px rgba(37,99,235,0.3);
+      }
+      .loading-spinner {
+        width: 28px; height: 28px; border: 3px solid rgba(255,255,255,0.3);
+        border-top-color: white; border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .loading-text { color: #6b7280; font-size: 13px; margin-top: 12px; }
+    </style>
+  </head>
+  <body>
+    <div id="app-loading">
+      <div class="loading-logo">
+        <div class="loading-spinner"></div>
+      </div>
+      <div class="loading-text">Loading TalentOS...</div>
+    </div>
+    <app-root></app-root>
+    <script>
+      // Remove loading screen once Angular bootstraps
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new MutationObserver(() => {
+          const appRoot = document.querySelector('app-root');
+          if (appRoot && appRoot.children.length > 0) {
+            const loader = document.getElementById('app-loading');
+            if (loader) {
+              loader.style.opacity = '0';
+              loader.style.transition = 'opacity 0.3s';
+              setTimeout(() => loader.remove(), 300);
+            }
+            observer.disconnect();
+          }
+        });
+        observer.observe(document.querySelector('app-root') || document.body, {childList: true, subtree: true});
+      });
+    </script>
+  </body>
+</html>
