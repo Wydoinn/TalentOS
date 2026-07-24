@@ -2,6 +2,8 @@
 
 TalentOS is a local-first AI recruitment platform that brings hiring workflows together in one place. It combines an Angular frontend with four FastAPI services to support authentication, orchestration, anti-spoofing, and ATS-driven resume analysis.
 
+[Demo](https://github.com/user-attachments/assets/174e5fb7-b7f5-4249-80d1-78ade8f9e9c9)
+
 ## Why TalentOS?
 
 - Streamline candidate onboarding and recruiter workflows
@@ -20,9 +22,7 @@ TalentOS is a local-first AI recruitment platform that brings hiring workflows t
 - `backend/models/`: shared local model cache used by the backend services. See `backend/models/README.md` for the model list and download sources
 - `run-all.ps1` and `run-all.sh`: helper scripts to start the full stack locally
 
-## Swipe through the experience
-
-Swipe horizontally to explore the latest screenshots from the updated gallery.
+## Screenshots
 
 <div align="center">
   <div style="display:flex; overflow-x:auto; gap:16px; padding:8px 0; scroll-snap-type:x mandatory;">
