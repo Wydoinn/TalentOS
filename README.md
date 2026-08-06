@@ -1,6 +1,12 @@
+<div align="center">
+
 # TalentOS
 
-TalentOS is an AI-powered recruitment platform designed to simplify hiring from candidate onboarding to assessment and screening. Built with Angular and FastAPI, it brings together authentication, workflow orchestration, anti-spoofing checks, and resume intelligence in one local-first system.
+TalentOS is an AI-powered recruitment platform designed to simplify hiring from candidate onboarding to assessment and screening. Built with Angular and FastAPI, it brings together authentication, workflow orchestration, anti-spoofing checks, and resume intelligence.
+
+[![License](https://img.shields.io/badge/License-MIT-gold.svg)](LICENSE)
+
+</div>
 
 [Demo](https://github.com/user-attachments/assets/174e5fb7-b7f5-4249-80d1-78ade8f9e9c9)
 
